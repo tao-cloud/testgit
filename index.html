@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css"  media="all"> -->
+  <title>dy</title>
+    <script src="./js/jquery-3.2.1.js"></script>
+  <script src="./js/layer/layer.js"></script>
+   <script src="./js/clipboard.js"></script>
+</head>
+
+  <style type="text/css">
+    body,p,span,div{
+    	margin:0px;
+      padding:0px;
+    }
+    .head{
+    	width:100%;
+      height:70px;
+      background:#fff;
+    }
+    .head-left{
+    	width:20%;
+      	float:left;
+      	height:70px;
+     	line-height:70px;
+    }
+    .head-l{
+    	width:30%;
+      font-size:22px;
+      	float:left;
+      	height:70px;
+     	line-height:70px;
+    }
+    .head-right{
+    	width:50%;
+      float:right;
+      height:70px;
+     
+    }
+    .fenxiang{
+    	width:80px;
+      height:40px;
+      margin-top:15px;
+      margin-right:15px;
+      color:#fff;
+      line-height:40px;
+      text-align:center;
+      border-radius:20px;
+      background:#5E8FF8;
+      float:right;
+      
+    }
+    .content{
+    	width:100%;
+    }
+    .footer{
+    	width:100%;
+    }
+    .weixin{
+    	width:60%;
+      height:30%;
+      background:#fff;
+      	position:fixed;
+      top:30%;
+      left:20%;
+      z-index:99;
+      border-radius:20px;
+    }
+    .bc{
+    	width:100%;
+      height:1300px;
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:98;
+      background:rgba(0,0,0,0.5);
+      overflow:auto;
+    }
+  </style>
+<body>
+  <div class="head">
+    <div class="head-left">
+    	<img src="./image/weixin.png" style="width:50px;height:50px;border-radius:25px;margin:10px;"/>
+    </div>
+    <div class="head-l" id="biao1">
+    	snow-1218qq
+    </div>
+    <div class="head-right">
+      <div class="fenxiang" >+关注</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="img-bar">
+    <img src="./image/1.jpg" style="width:100%;" />
+     <img src="./image/2.jpg" style="width:100%;" />
+     <!-- <img src="./image/3.jpg" style="width:100%;" /> -->
+  
+  
+      
+   
+    </div>
+  </div>
+  <div class="footer"></div>
+<div class="head">
+    <div class="head-left">
+    	<img src="./image/weixin.png" style="width:50px;height:50px;border-radius:25px;margin:10px;"/>
+    </div>
+    <div class="head-l" id="biao2">
+    	snow-1218qq
+    </div>
+    <div class="head-right">
+      <div class="fenxiang" >+关注</div>
+    </div>
+  </div>
+  <div class="bc" style="display:none;"></div>
+  <div class="weixin" style="display:none;">
+    <div  style="width:100%;text-align:center;height:50px;margin-top:40px;"><img src="./image/wx.png" style="width:50px;height:50px;margin:0px auto;"/></div>
+    <div><h2 style="text-align:center;margin:5px;font-weight: 100;font-family:STSong ;">复制成功</h2><p style="width:80%;margin:0px auto;text-align:center;font-size:12px;color:#999;">您已成功复制微信号，是否立即跳转到微信搜索该微信号？</p></div>
+    <div style="width:70%;margin:0px auto;">
+      <div class="quxiao" style="width:80px;height:30px;border-radius:15px;border:1px solid #999;color:#999;float:left;text-align:center;line-height:30px;margin-top:10px;">取消</div>
+      <div class="queding" data-clipboard-action="copy" data-clipboard-target="#biao2"  style="width:80px;height:30px;border-radius:15px;border:1px solid #28B5B5;color:#28B5B5;float:right;text-align:center;line-height:30px;margin-top:10px;">确定</div>
+    </div>
+  </div>
+    
+</body>
+
+<script type="text/javascript">
+  $(".fenxiang").on("click",function(){
+  	$(".bc").show();
+    $(".weixin").show();
+   
+  });
+   $(".quxiao").on("click",function(){
+  	$(".bc").hide();
+    $(".weixin").hide();
+   
+  });
+   var clipboard = new ClipboardJS('.queding');
+     clipboard.on('success', function(e) {
+                window.location.href = 'weixin://';
+     });
+     clipboard.on('error', function(e) {
+         window.location.href = 'weixin://';
+        
+     });
+ 	
+ 
+    
+</script>
+
+</html>
